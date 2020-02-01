@@ -40,15 +40,20 @@ class ProtaShell(Cmd):
 ++====================================================================================================================++
 ||                                                                                                                    ||            
 ||    novaseq -> introduzir uma sequência de proteína manualmente                                                     ||
-||    remover_seq -> remove a sequência especificada na base de dados local                                           ||
-||    importar_seq -> importar uma sequência de uma ficheiro (.fasta ou .txt)                                         ||
-||    blast_db -> blast da sequência proteica contra a base de dados local                                            ||
-||    blast_ex -> blast da sequência proteica contra a base de dados externa (ex: swissprot, nr)                      ||
+||    novafeature -> Introduz uma nova feature da sequência na base de dados local                                    ||
+||    editarfeature -> Edita o conteúdo existente da feature selecionada                                              ||
+||    procuraid -> Procura uma sequência na base de dados local através do id                                         ||
+||    freqsimbol -> Procura padrões normais e/ou expressões regulares nas sequências, dá return do n de ocorrências   ||
 ||    freq_simbolo <padrão> -> efetua a contagem de certos padrões na seq de aa                                       ||
-||    procura <file_input file_output database> -> efetua a procura de padrões na seq de aa usando ER                 ||
-||    arvore <file_input> -> cria uma árvore filogenética a partir do AM contra bd local, usando o algoritmo UPGMA    ||
-||    alinhamento_multiplo <file_input> -> efetua o alinhamento múltiplo de sequências homólogas                      ||
-||    sair -> fecha o programa                                                                                        ||
+||    export -> Exporta uma sequência, ou exporta as sequências todas da base de dados para um ficheiro .txt          ||
+||    importseq -> Importa uma sequência a partir de um ficheiro dado, usando o nome sem extensão como seq_id         ||
+||    blastlocal -> eRealiza um Bast de uma sequência importada contra todas as seqs na base de dados                 ||
+||    arvore -> Cria uma árvore de todas as seqs na base de dados, usando o algoritmo UPGMA                           ||
+||    alinmulti -> Realiza um alinhamento múltiplo com todas as seqs da base de dados                                 ||
+||    tamanhodic -> Devolve o número de seqs na base de dados                                                         ||
+||    dicionario -> Devolve o id, a sequência e as features de todas as seqs na base de dados                         ||
+||    gravar -> Grava o progresso da base de dados                                                                    ||
+||    sair -> Sair do programa, gravando tudo na base de dados                                                        ||
 ||                                                                                                                    ||
 ||                          Pressione < ? comando > para mais informações acerca do comando                           ||
 ||                 (qualquer ficheiro importado/exportado DEVE estar na mesma working directory!)                     ||
@@ -282,8 +287,8 @@ class ProtaShell(Cmd):
         except:
             print('Erro ao realizar alinhamento múltiplo\n')
 
-    def do_prosite(self, arg):
-        pass
+    #def do_prosite(self, arg):
+     #   pass
 
     def do_tamanhodic(self, arg):
         '- Devolve o número de seqs na base de dados: tamanhodic'
